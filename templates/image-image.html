@@ -1,0 +1,221 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Image Steganography</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+		<link href="https://fonts.googleapis.com/css2?family=Tenali+Ramakrishna&display=swap" rel="stylesheet">
+		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" 					
+		integrity="sha384wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		 <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+		<style>
+			*{
+				box-sizing: border-box;
+			}
+			
+			.row::after {
+				content: "";
+				clear: both;
+				display: block;
+			}
+
+			[class*="col-"] {
+				float: left;
+				padding: 15px;
+			}
+
+			html {
+				font-family: "Lucida Sans", sans-serif;
+			}
+
+			.header {
+				background-color: #9933cc;
+				color: #ffffff;
+				padding: 15px;
+				background-image:url("https://images.unsplash.com/photo-1569615313731-7407da4f4594?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9");
+				background-size: cover;
+			}
+
+			.aside {
+				background-color: #33b5e5;
+				padding: 15px;
+				color: #ffffff;
+				text-align: center;
+				font-size: 14px;
+				box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+			}
+
+			.footer {
+			  background-color: #0099cc;
+				color: #ffffff;
+				text-align: center;
+				font-size: 12px;
+				padding: 15px;
+			}
+			
+			/* For desktop: */
+			.col-1 {width: 8.33%;}
+			.col-2 {width: 16.66%;}
+			.col-3 {width: 25%;}
+			.col-4 {width: 33.33%;}
+			.col-5 {width: 41.66%;}
+			.col-6 {width: 50%;}
+			.col-7 {width: 58.33%;}
+			.col-8 {width: 66.66%;}
+			.col-9 {width: 75%;}
+			.col-10 {width: 83.33%;}
+			.col-11 {width: 91.66%;}
+			.col-12 {width: 100%;}
+
+			@media only screen and (max-width: 768px) {
+			  /* For mobile phones: */
+				[class*="col-"] {
+					width: 100%;
+				}
+			}	
+			
+			body {
+			  background-color: lightgreen;
+			}
+
+			div.example {
+				background-color: lightgreen;
+				padding: 20px;
+			}
+			
+			img {
+				width: 100%;
+				height: auto;
+			}
+
+			@media only screen and (orientation: landscape) {
+			  body {
+				background-color: lightblue;
+			  }
+			}
+			
+			@media screen and (max-width: 600px) {
+			  div.example {
+				display: none;
+			  }
+			}
+			
+			@media screen and (min-width: 600px) {
+			  div.col-6 {
+				font-size: 25px;
+			  }
+			}
+
+			@media screen and (max-width: 600px) {
+			  div.col-6 {
+				font-size: 15px;
+			  }
+			}
+			body{
+				width:100%;
+				height:100vh;
+				background-image:linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('https://images.unsplash.com/photo-1569615313731-7407da4f4594?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjF9');
+				background-repeat:no-repeat;
+				background-size: 100% 100%;
+				position:relative;
+			}
+			html{
+				scroll-behavior:smooth;
+			}
+			*{
+				margin:auto;
+				padding:auto;
+				box-sizing:border-box;
+				font-family: 'Tenali Ramakrishna', sans-serif;
+			}
+			p{
+				text-align:center;
+				font-size:1.9rem;
+				padding:10px;
+			}
+			h1{
+				text-align:center;
+				font-size:5rem;
+				padding-top:10px;
+				padding-bottom:20px;
+			}
+			.headings{
+				margin-bottom:50px;
+			}
+			.stego{
+				width:100%;
+				height:100vh;
+				padding:80px 0;
+				position:relative;
+			}
+			.form-group{
+				padding-top:10px;
+				border:1px solid black;
+				background-color:#fff!important;
+			}
+			.buttons > button{
+				border:1px solid black;
+				margin:0 5px;
+				padding:12px 35px;
+				outline:none;
+				color:#000;
+				font-size:1rem;
+				line-height:1.4rem;
+				text-align:center;
+			}
+			.buttons > button:hover{
+				background-color:#fff!important;
+				color:#000;
+				box-shadow:2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<h1>FINAL YEAR PROJECT</h1>
+		</div>
+		<section class="stego">
+			<div class="container headings">
+				<h1>Image Steganography</h1>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10 offset-md-1">
+						<form action="{{ url_for('home') }}" method="POST" enctype = "multipart/form-data">
+							<div class="row">
+								<div class="col-md-6">	
+									<div class="form-group text-center">
+										<label for="img">Upload Cover Image :</label>
+										<input type="file" id="img1" name="img1" accept="image/*">
+									</div>
+									<div class="form-group text-center">
+										<label for="img">Upload Secret Image :</label>
+										<input type="file" id="img2" name="img2" accept="image/*">
+									</div>
+									<div class="d-flex justify-content-center buttons">
+										<form action="/stego" method="post"> 
+										<button name="encrypt" type="submit" class="btn" >Encrypt</button>
+										</form>
+									</div>
+								</div>
+								<div class="col-md-6">	
+									<div class="form-group text-center">
+										<label for="img">Upload Stego Image :</label>
+										<input type="file" id="img" name="img" accept="image/*">
+									</div>
+									<div class="d-flex justify-content-center buttons">
+										<button type="submit" class="btn">Decrypt</button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+		<h2>{{string}}</h2>
+
+		<div class="footer">
+			<h1><i class="far fa-copyright"></i>COPYRIGHT OF THE PUBLISHER</h1>
+		</div>
+	</body>
+</html>

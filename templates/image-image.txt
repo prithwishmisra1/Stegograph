@@ -1,0 +1,107 @@
+<!doctype html>
+<html>
+	<head>
+		<title>Image Steganography</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+		<link href="https://fonts.googleapis.com/css2?family=Tenali+Ramakrishna&display=swap" rel="stylesheet">
+		<link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		<style>
+			body{
+				width:100%;
+				height:100vh;
+				background-image:linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), url('background.jpg');
+				background-repeat:no-repeat;
+				background-size: 100% 100%;
+				position:relative;
+			}
+			html{
+				scroll-behavior:smooth;
+			}
+			*{
+				margin:auto;
+				padding:auto;
+				box-sizing:border-box;
+				font-family: 'Tenali Ramakrishna', sans-serif;
+			}
+			p{
+				text-align:center;
+				font-size:1.9rem;
+				padding:10px;
+			}
+			h1{
+				text-align:center;
+				font-size:5rem;
+				padding-top:10px;
+				padding-bottom:20px;
+			}
+			.headings{
+				margin-bottom:50px;
+			}
+			.stego{
+				width:100%;
+				height:100vh;
+				padding:80px 0;
+				position:relative;
+			}
+			.form-group{
+				padding-top:10px;
+				border:1px solid black;
+				background-color:#fff!important;
+			}
+			.buttons > button{
+				border:1px solid black;
+				margin:0 5px;
+				padding:12px 35px;
+				outline:none;
+				color:#000;
+				font-size:1rem;
+				line-height:1.4rem;
+				text-align:center;
+			}
+			.buttons > button:hover{
+				background-color:#fff!important;
+				color:#000;
+				box-shadow:2px 2px 2px 2px rgba(0, 0, 0, 0.3);
+			}
+		</style>
+	</head>
+	<body>
+		<section class="stego">
+			<div class="container headings">
+				<h1>Image Steganography</h1>
+			</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-md-10 offset-md-1">
+						<form>
+							<div class="row">
+								<div class="col-md-6">	
+									<div class="form-group text-center">
+										<label for="img">Upload Cover Image :</label>
+										<input type="file" id="img" name="img" accept="image/*">
+									</div>
+									<div class="form-group text-center">
+										<label for="img">Upload Secret Image :</label>
+										<input type="file" id="img" name="img" accept="image/*">
+									</div>
+									<div class="d-flex justify-content-center buttons">
+										<button type="submit" class="btn">Encrypt</button>
+									</div>
+								</div>
+								<div class="col-md-6">	
+									<div class="form-group text-center">
+										<label for="img">Upload Stego Image :</label>
+										<input type="file" id="img" name="img" accept="image/*">
+									</div>
+									<div class="d-flex justify-content-center buttons">
+										<button type="submit" class="btn">Decrypt</button>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</section>
+	</body>
+</html>
