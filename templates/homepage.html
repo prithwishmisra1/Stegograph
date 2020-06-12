@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Flask Tutorial</title>
+  </head>
+  <body>
+    <h2>Merge function</h2>
+    <form method="POST" action="/merge" enctype="multipart/form-data">
+      <input type="file" name="img1">
+      <input type="file" name="img2">
+      <br/>
+      <input type="submit" name="sbt" value="Merge">
+    </form>
+    <br>
+    <br>
+    <h2>Unmerge Function</h2>
+    <form method="POST" action="/unmerge" enctype="multipart/form-data">
+      <input type="file" name="img">
+      <br/>
+      <input type="submit" name="sbt" value="Unmerge">
+    </form>
+  </body>
+</html>
